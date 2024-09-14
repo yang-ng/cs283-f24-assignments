@@ -20,7 +20,6 @@ How to Build and Run:
 
 Design:
 	The game consists of three main classes: Apple.cs, Basket.cs, and Game.cs, also the Window.cs file that sets up the game window.
-
 	Game.cs:
 	The Game object is responsible for managing the overall game state and apples and the basket. During each frame, the game loop calls the Update(float dt) method in the Game class. Once the game starts, it updates the position of each apple by calling the Update(float dt) method in the Apple class. The Game object also checks if an apple has been caught by the basket using the isCaught(Basket basket) method, and if it has, it increases the score and resets the apple’s position. Similarly, if an apple falls out of bounds, it is reset to the top. Additionally, the Basket object is updated based on player input through the KeyDown() method, which moves the basket left or right. The game tracks time, ensuring that the game lasts for 120 seconds, and after that, it displays the final score and allows the player to restart.
 
