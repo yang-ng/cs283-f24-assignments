@@ -4,11 +4,12 @@ Assignment 2
 Game: Apple Rush
 
 Introduction:
-	
- There are apples falling from the sky. You have a basket to collect has many as possible in 120 seconds!
+
+	There are apples falling from the sky. You have a basket to collect has many as possible in 120 seconds!
 
 How to Play:
-	Use left arrow and right arrow to move the basket. In order to catch an apple, you need to place it below the apple. The rule is displayed before the game starts. You'll have 120 seconds. During the game, your current score and remaining time is on the screen. When time's up, you will see your score and you can click to play again.
+
+	Use left arrow and right arrow to move the basket. In order to catch an apple, you need to place it below the apple. The rule is displayed before the game starts. You'll have 120 	seconds. During the game, your current score and remaining time is on the screen. When time's up, you will see your score and you can click to play again.
 
 How to Build and Run:
 	csc *.cs
