@@ -9,17 +9,18 @@ using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Data;
+using static System.Net.Mime.MediaTypeNames;
 
 public class Window : System.Windows.Forms.Form
 {
     private static int _windowHeight = 480;
-    public static int height 
+    public static int height
     {
         get { return _windowHeight; }
     }
 
     private static int _windowWidth = 640;
-    public static int width 
+    public static int width
     {
         get { return _windowWidth; }
     }
@@ -31,7 +32,7 @@ public class Window : System.Windows.Forms.Form
     }
 
     private Game _game = new Game();
-    private Timer _timer = new Timer(); 
+    private Timer _timer = new Timer();
     private DateTime _lastTime;
 
     public Window()
@@ -64,14 +65,14 @@ public class Window : System.Windows.Forms.Form
         // GameLoop is implemented here
         DateTime current = DateTime.Now;
         TimeSpan dt = current - _lastTime;
-        _game.Update((float) dt.TotalSeconds);
+        _game.Update((float)dt.TotalSeconds);
         Refresh();
         _lastTime = current;
     }
 
     private void DrawCb(object sender, System.Windows.Forms.PaintEventArgs e)
     {
-        _game.Draw(e.Graphics); 
+        _game.Draw(e.Graphics);
     }
 
     private void ResizeCb(object sender, System.EventArgs e)
@@ -94,6 +95,6 @@ public class Window : System.Windows.Forms.Form
     [STAThread]
     static void Main()
     {
-        Application.Run(new Window());
+        System.Windows.Forms.Application.Run(new Window());
     }
 }
