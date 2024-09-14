@@ -24,7 +24,7 @@ public class Game
         }
 
         _score = 0;
-        _timeLeft = 5;
+        _timeLeft = 120;
         _showRules = true;
         _ruleDisplayTime = 1.5f;
     }
@@ -142,13 +142,12 @@ public class Game
 
     public void KeyDown(KeyEventArgs key)
     {
-        if (key.KeyCode == Keys.Left)
+        if (key.KeyCode == Keys.Left || key.KeyCode == Keys.A)
         {
             _basket.MoveLeft(0.1f);
         }
-        else if (key.KeyCode == Keys.Right)
+        else if (key.KeyCode == Keys.Right || key.KeyCode == Keys.D)
         {
             _basket.MoveRight(0.1f);
         }
     }
-}
