@@ -2,6 +2,13 @@
 
 Game: Apple Rush
 
+Game Play:
+
+
+https://github.com/user-attachments/assets/13d18fc3-3426-45ff-aa9b-902f25f5af88
+
+
+
 Introduction: There are apples falling from the sky. You have a basket to collect has many as possible in 120 seconds!
 
 How to Play: Use left arrow and right arrow to move the basket. In order to catch an apple, you need to place it below the apple. The rule is displayed before the game starts. You'll have 120 seconds. During the game, your current score and remaining time is on the screen. When time's up, you will see your score and you can click to play again.
