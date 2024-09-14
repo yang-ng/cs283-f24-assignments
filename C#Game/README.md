@@ -1,6 +1,4 @@
-# Your README for A2 HERE
 Assignment 2
-
 Game: Apple Rush
 
 Introduction: There are apples falling from the sky. You have a basket to collect has many as possible in 120 seconds!
