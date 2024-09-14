@@ -26,6 +26,6 @@ Game.cs: The Game object is responsible for managing the overall game state and 
 
 Apple.cs: Each Apple object manages its own movement and interaction with the basket. The Update(float dt) method is called every frame to move the apple downward based on its speed and the time delta (dt). The position of the apple is updated incrementally, simulating its fall from the top of the window. The Apple object also includes logic to check if it has been caught.
 
-Basket.cs: The Basket object represents the player’s control. When the player presses the left or right arrow keys or A or D, the KeyDown(KeyEventArgs key) method in the Game class calls the MoveLeft(float dt) or MoveRight(float dt) methods in the Basket class. The basket’s movement is restricted within the window boundaries.
+Basket.cs: The Basket object represents the player’s control. When the player presses left or right arrow keys or A or D, the KeyDown(KeyEventArgs key) method in the Game class calls the MoveLeft(float dt) or MoveRight(float dt) methods in the Basket class. The basket’s movement is restricted within the window boundaries.
 
 Window.cs: sets up the game window and handles the game loop
