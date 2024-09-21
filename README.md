@@ -11,6 +11,14 @@ https://davidoreilly.itch.io/
 https://www.dropbox.com/s/esceeu6slgn61lj/StandardAssets.unitypackage?e=1&dl=0
 
 
+animation:
+
+
+https://github.com/user-attachments/assets/cfc7dc11-8614-4d68-8a0e-6ac9afed59f5
+
+
+
+
 
 Assignment 1
 
