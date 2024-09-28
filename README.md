@@ -4,10 +4,12 @@
 Assignment 4
 
 Features of level:
+
 main character at home:
 ![image](https://github.com/user-attachments/assets/55a2b8ad-dfa4-4626-91ec-24c8e6eb2da0)
 
 home area:
+
 ![image](https://github.com/user-attachments/assets/a0b6012f-5cea-4ffd-9b79-706b32c60633)
 
 quest area:
