@@ -1,5 +1,27 @@
 # cs283-f24-assignments
-Assignment 2
+
+
+Assignment 4
+
+Features of level:
+main character at home:
+![image](https://github.com/user-attachments/assets/55a2b8ad-dfa4-4626-91ec-24c8e6eb2da0)
+
+home area:
+![image](https://github.com/user-attachments/assets/a0b6012f-5cea-4ffd-9b79-706b32c60633)
+
+quest area:
+![image](https://github.com/user-attachments/assets/055fc46e-0327-402e-b611-69caa0bfb9ef)
+
+![image](https://github.com/user-attachments/assets/ec4d0817-ac45-4ac5-bc2c-feda1b1078c7)
+
+character is able to stay idle and run
+
+3 POIs, hit N to swtich to next
+
+character is from: unity assets store
+
+Assignment 3
 
 features of the level:
 I made the home in the wild, and made the quest area a snowfield
