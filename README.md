@@ -19,6 +19,12 @@ quest area:
 
 character is able to stay idle and run
 
+moving the fly through camera with WASD and mouse:
+
+https://github.com/user-attachments/assets/01d79a16-48b3-4721-a362-90eb290a0084
+
+
+
 3 POIs, hit N to swtich to next
 
 https://github.com/user-attachments/assets/24bddc70-151f-4e52-9059-1f7a9e34becd
