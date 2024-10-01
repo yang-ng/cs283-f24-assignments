@@ -21,6 +21,10 @@ character is able to stay idle and run
 
 3 POIs, hit N to swtich to next
 
+https://github.com/user-attachments/assets/24bddc70-151f-4e52-9059-1f7a9e34becd
+
+
+
 character is from: unity assets store
 
 
