@@ -2,26 +2,26 @@ using UnityEngine;
 
 public class FlyCamera : MonoBehaviour
 {
-    public float movementSpeed = 10f;  // Speed of the camera movement
-    public float lookSpeed = 3f;       // Speed of camera rotation
+    public float movementSpeed = 10f;
+    public float lookSpeed = 3f;
 
-    private float yaw = 0f;            // Horizontal rotation (left/right)
-    private float pitch = 0f;          // Vertical rotation (up/down)
+    private float yaw = 0f;
+    private float pitch = 0f;
 
     void Update()
     {
-        // Mouse Look: Get mouse input to rotate the camera
+        // get mouse input to rotate the camera
         yaw += Input.GetAxis("Mouse X") * lookSpeed;
         pitch -= Input.GetAxis("Mouse Y") * lookSpeed;
 
-        // Apply the rotation
+        // apply the rotation
         transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
 
-        // Camera Movement: Get WASD input to move the camera
+        // get WASD input to move the camera
         float moveForward = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
         float moveRight = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
 
-        // Move the camera relative to its current rotation
+        // move the camera relative to its current rotation
         transform.Translate(moveRight, 0, moveForward);
     }
 }
