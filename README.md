@@ -1,5 +1,22 @@
 # cs283-f24-assignments
 
+Assginment 5
+
+video of Rigid Follow Camera:
+
+https://github.com/user-attachments/assets/74e3d160-ad2a-4626-bb79-71a167dab92e
+
+
+video of Spring Follow Camera:
+
+https://github.com/user-attachments/assets/ad3f068e-89a0-436e-9ea5-4e376fc0b446
+
+
+video of using Spacebar to Reset the Position of Spring Follow Camera:
+
+https://github.com/user-attachments/assets/d1e07aaa-0b28-47fa-8272-abb1c777547c
+
+
 
 Assignment 4
 
