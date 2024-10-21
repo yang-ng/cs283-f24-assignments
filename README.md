@@ -1,6 +1,8 @@
 # cs283-f24-assignments
 
 Assignment 6
+
+
 in the scene A06_FollowPath, the script of Cubic follow is now checked. If you want to see Linear follow, please change to the Linear follow script in the character inspector window
 
 demo of Linear Following
@@ -16,12 +18,22 @@ https://github.com/user-attachments/assets/27bf7d50-70a5-428a-8eb5-40f5840bc2b1
 
 
 
+
+The controllers are tested in the Scene view in play mode by manually moving the targets.
+
 Gaze Control:
+
+https://github.com/user-attachments/assets/0bc57a4f-b0f5-4bc4-8f14-e91b95c98303
+
 
 
 
 
 Two Link Control:
+
+https://github.com/user-attachments/assets/72e5d030-2f8a-4798-8b11-ee81783103cc
+
+
 
 
 
