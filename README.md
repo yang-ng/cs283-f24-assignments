@@ -29,7 +29,8 @@ In A6_IKcontroller, the controllers are tested in the Scene view in play mode by
 
 - Gaze Control:
 
-https://github.com/user-attachments/assets/0bc57a4f-b0f5-4bc4-8f14-e91b95c98303
+https://github.com/user-attachments/assets/81d72676-69e9-4d18-8086-7bb67b8014d0
+
 
 
 
