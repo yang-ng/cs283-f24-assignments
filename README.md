@@ -16,6 +16,20 @@ https://github.com/user-attachments/assets/27bf7d50-70a5-428a-8eb5-40f5840bc2b1
 
 
 
+Gaze Control:
+
+
+
+
+Two Link Control:
+
+
+
+
+
+
+
+
 
 Assginment 5
 
