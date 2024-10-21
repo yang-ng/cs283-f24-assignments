@@ -9,24 +9,25 @@ The Cubic one is checked now. If you want to see Linear, please change to the Li
 
 
 
-demo of Linear Following
+- demo of Linear Following
 
 https://github.com/user-attachments/assets/ea63c1ce-35a7-4935-9b27-517c38e75cb3
 
 
 
 
-demo of Cubic Following
+- demo of Cubic Following
 
 https://github.com/user-attachments/assets/27bf7d50-70a5-428a-8eb5-40f5840bc2b1
 
 
 
+----------------------------------------------
 
 In A6_IKcontroller, the controllers are tested in the Scene view in play mode by manually moving the targets.
 
 
-Gaze Control:
+- Gaze Control:
 
 https://github.com/user-attachments/assets/0bc57a4f-b0f5-4bc4-8f14-e91b95c98303
 
@@ -34,7 +35,7 @@ https://github.com/user-attachments/assets/0bc57a4f-b0f5-4bc4-8f14-e91b95c98303
 
 
 
-Two Link Control:
+- Two Link Control:
 
 https://github.com/user-attachments/assets/72e5d030-2f8a-4798-8b11-ee81783103cc
 
