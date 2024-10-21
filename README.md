@@ -3,7 +3,7 @@
 Assignment 6
 
 
-in the scene A06_FollowPath, only one of (Linear/Cubic) Path Follow scripts can be checked at the same time.
+In the scene A06_FollowPath, only one of (Linear/Cubic) Path Follow scripts can be checked at the same time.
 
 The Cubic one is checked now. If you want to see Linear, please change to the Linear follow script in the character inspector window.
 
@@ -23,7 +23,8 @@ https://github.com/user-attachments/assets/27bf7d50-70a5-428a-8eb5-40f5840bc2b1
 
 
 
-The controllers are tested in the Scene view in play mode by manually moving the targets.
+In A6_IKcontroller, the controllers are tested in the Scene view in play mode by manually moving the targets.
+
 
 Gaze Control:
 
