@@ -1,10 +1,18 @@
 # cs283-f24-assignments
 
 Assignment 6
+in the scene A06_FollowPath, the script of Cubic follow is now checked. If you want to see Linear follow, please change to the Linear follow script in the character inspector window
 
 demo of Linear Following
 
-https://github.com/user-attachments/assets/c7b56ff3-13a0-4233-a03b-87e2b3510327
+https://github.com/user-attachments/assets/ea63c1ce-35a7-4935-9b27-517c38e75cb3
+
+
+
+
+demo of Cubic Following
+
+https://github.com/user-attachments/assets/27bf7d50-70a5-428a-8eb5-40f5840bc2b1
 
 
 
