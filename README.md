@@ -3,7 +3,9 @@
 Assignment 6
 
 
-in the scene A06_FollowPath, the script of Cubic follow is now checked. If you want to see Linear follow, please change to the Linear follow script in the character inspector window
+in the scene A06_FollowPath, only one of (Linear/Cubic) Path Follow scripts can be checked at the same time.
+
+The Cubic one is checked now. If you want to see Linear, please change to the Linear follow script in the character inspector window.
 
 demo of Linear Following
 
