@@ -7,6 +7,8 @@ in the scene A06_FollowPath, only one of (Linear/Cubic) Path Follow scripts can 
 
 The Cubic one is checked now. If you want to see Linear, please change to the Linear follow script in the character inspector window.
 
+
+
 demo of Linear Following
 
 https://github.com/user-attachments/assets/ea63c1ce-35a7-4935-9b27-517c38e75cb3
