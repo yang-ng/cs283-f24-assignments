@@ -1,5 +1,14 @@
 # cs283-f24-assignments
 
+Assignment 6
+
+demo of Linear Following
+
+https://github.com/user-attachments/assets/c7b56ff3-13a0-4233-a03b-87e2b3510327
+
+
+
+
 Assginment 5
 
 video of Rigid Follow Camera:
