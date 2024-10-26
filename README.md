@@ -3,7 +3,7 @@
 
 Assignment 7
 
-- demo of animated character, staying idle and running (controlled by WASD), being blocked by obstacles
+- demo of animated character, staying idle and running (controlled by WASD), being blocked by solid objects
 
 https://github.com/user-attachments/assets/0845beb7-0fc8-481a-99fe-79a766c300b5
 
