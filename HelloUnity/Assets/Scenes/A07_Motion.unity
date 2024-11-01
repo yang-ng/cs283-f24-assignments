@@ -210,12 +210,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: A4level
       objectReference: {fileID: 0}
+    - target: {fileID: 7511650086727312058, guid: 3316dc66ccc17405b916f11854024db8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8879873180761211545, guid: 3316dc66ccc17405b916f11854024db8, type: 3}
       propertyPath: m_Name
       value: MainCamera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7511650086727312058, guid: 3316dc66ccc17405b916f11854024db8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9138069252819766192, guid: 3316dc66ccc17405b916f11854024db8, type: 3}
