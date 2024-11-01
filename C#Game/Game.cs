@@ -151,5 +151,4 @@ public class Game
             _basket.MoveRight(0.1f);
         }
     }
-
 }
