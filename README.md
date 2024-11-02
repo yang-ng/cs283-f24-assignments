@@ -1,5 +1,18 @@
 # cs283-f24-assignments
 
+Assignment 8
+
+demo showing:
+- UI(score display and update)
+- coin disappears after being picked up (assets from freesound.org)
+- sound when picking up a coin
+- spawn at random positions
+- new spawn elsewhere after a coin is picked up
+- coins are all on the terrain
+
+https://github.com/user-attachments/assets/aea7f234-138f-4f02-bf7d-89466a5a2fff
+
+
 
 Assignment 7
 
