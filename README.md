@@ -9,7 +9,12 @@ Assignment 9
 <img width="385" alt="Player   NPC" src="https://github.com/user-attachments/assets/d9c70d90-3476-4c14-9549-19b974e6d643">
 
 - demo showing Wander
-https://github.com/user-attachments/assets/5222731c-5193-4c60-9616-85f237ee77f1
+
+
+https://github.com/user-attachments/assets/2a284712-1ca2-42a0-8f7a-e3ed8e19d3e4
+
+
+
 
 
 Assignment 8
