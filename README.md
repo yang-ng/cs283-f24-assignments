@@ -1,5 +1,17 @@
 # cs283-f24-assignments
 
+Assignment 9
+
+- NPC appearance: same asset with player, but it is golden
+<img width="170" alt="NPC" src="https://github.com/user-attachments/assets/42ae1940-83f8-4fad-aeef-589cb9e99f4f">
+
+- Player & NPC:
+<img width="385" alt="Player   NPC" src="https://github.com/user-attachments/assets/d9c70d90-3476-4c14-9549-19b974e6d643">
+
+- demo showing Wander
+https://github.com/user-attachments/assets/5222731c-5193-4c60-9616-85f237ee77f1
+
+
 Assignment 8
 
 demo showing:
