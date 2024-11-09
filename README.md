@@ -8,7 +8,7 @@ Assignment 9
 - Player & NPC:
 <img width="385" alt="Player   NPC" src="https://github.com/user-attachments/assets/d9c70d90-3476-4c14-9549-19b974e6d643">
 
-- demo showing Wander
+- demo showing NPC Wander (I am controlling the player, NPC is wandering)
 
 
 https://github.com/user-attachments/assets/2a284712-1ca2-42a0-8f7a-e3ed8e19d3e4
