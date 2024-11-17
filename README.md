@@ -1,5 +1,20 @@
 # cs283-f24-assignments
 
+Assignment 10
+- NPC with RPG attack and flee behavior
+
+https://github.com/user-attachments/assets/e8f172b1-c66e-49a7-a887-98b49e90234e
+
+- NPC helper that follows the player when H is pressed, when H is pressed again it stops following the player
+
+https://github.com/user-attachments/assets/51e7c7dc-96e2-4a4d-ad37-c09ed46ea6c2
+
+- two NPCs together in a scene
+
+https://github.com/user-attachments/assets/3d44eb63-efe3-44f2-a5a1-12072be91a66
+
+
+
 Assignment 9
 
 - NPC appearance: same asset with player, but it is golden
