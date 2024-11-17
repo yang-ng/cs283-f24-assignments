@@ -2,7 +2,10 @@
 
 Assignment 10
 
-- 2 NPCs(an enemy and a helper) are in the same scene 
+- 2 NPCs(an enemy and a helper) are in the same scene
+
+
+  
 - enemy(golden) with RPG attack and flee behavior
   
   safe zone is the stone cave where the player starts, approach it to get rid of the enemy, otherwise the enemy will chase and shoot the player
