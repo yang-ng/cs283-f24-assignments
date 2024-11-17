@@ -23,7 +23,6 @@ https://github.com/user-attachments/assets/51e7c7dc-96e2-4a4d-ad37-c09ed46ea6c2
 https://github.com/user-attachments/assets/3d44eb63-efe3-44f2-a5a1-12072be91a66
 
 
-
 Assignment 9
 
 - NPC appearance: same asset with player, but it is golden
