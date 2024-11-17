@@ -1,11 +1,11 @@
 # cs283-f24-assignments
 
 Assignment 10
-- NPC with RPG attack and flee behavior
+- enemy(golden) with RPG attack and flee behavior
 
 https://github.com/user-attachments/assets/e8f172b1-c66e-49a7-a887-98b49e90234e
 
-- NPC helper that follows the player when H is pressed, when H is pressed again it stops following the player
+- helper(blue) that follows the player when H is pressed, when H is pressed again it stops following the player
 
 https://github.com/user-attachments/assets/51e7c7dc-96e2-4a4d-ad37-c09ed46ea6c2
 
