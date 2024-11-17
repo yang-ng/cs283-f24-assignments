@@ -2,6 +2,10 @@
 
 Assignment 10
 
+2 NPCs are in the same scene A10_Behavior
+
+demos:
+
 - enemy(golden) with RPG attack and flee behavior
   
   safe zone is the stone cave where the player starts, approach it to get rid of the enemy, otherwise the enemy will chase and shoot the player
