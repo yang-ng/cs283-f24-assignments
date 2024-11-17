@@ -9,6 +9,8 @@ https://github.com/user-attachments/assets/e8f172b1-c66e-49a7-a887-98b49e90234e
 
 - helper(blue) that follows the player when H is pressed, when H is pressed again it stops following the player
 
+  in the beginning of the video helper is not follwing, then H is pressed and it follows the player, at the end of the video H is pressed again so it stops follwing
+
 https://github.com/user-attachments/assets/51e7c7dc-96e2-4a4d-ad37-c09ed46ea6c2
 
 - two NPCs together in a scene
