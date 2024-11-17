@@ -2,6 +2,7 @@
 
 Assignment 10
 - enemy(golden) with RPG attack and flee behavior
+  
   safe zone is the stone cave where the player starts, approach it to get rid of the enemy, otherwise the enemy will chase and shoot the player
 
 https://github.com/user-attachments/assets/e8f172b1-c66e-49a7-a887-98b49e90234e
