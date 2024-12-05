@@ -4,10 +4,13 @@ public class BallInteraction : MonoBehaviour
 {
     public GameObject ball;
     public float ballOffset = 1.5f;
+    public float dribbleForce = 10f;
     public float kickForce = 10f;
-    private bool isDribbling = false;
+    public float shootForce = 20f;
 
+    private bool isDribbling = false;
     private Rigidbody ballRb;
+
     void Start()
     {
         if (ball != null)
@@ -23,9 +26,16 @@ public class BallInteraction : MonoBehaviour
             DribbleBall();
         }
 
-        if (isDribbling && Input.GetKeyDown(KeyCode.Space))
+        // Kick action with key J
+        if (isDribbling && Input.GetKeyDown(KeyCode.J))
         {
-            KickBall();
+            KickBall(kickForce);
+        }
+
+        // Shoot action with key K
+        if (isDribbling && Input.GetKeyDown(KeyCode.K))
+        {
+            KickBall(shootForce);
         }
     }
 
@@ -39,31 +49,46 @@ public class BallInteraction : MonoBehaviour
 
     void StartDribbling()
     {
-        Debug.Log("starts dribbling!");
         isDribbling = true;
-
-        ballRb.isKinematic = true; // freeze the ball's physics while dribbling
     }
 
     void DribbleBall()
     {
         if (ball != null)
         {
-            Vector3 ballPosition = transform.position + transform.forward * ballOffset;
-            ballPosition.y = transform.position.y + 0.05f; // adjust height
-            ball.transform.position = ballPosition;
+            // Calculate the target position slightly in front of the ghost
+            Vector3 targetPosition = transform.position + transform.forward * ballOffset;
+
+            // Keep the ball on the ground
+            targetPosition.y = ball.transform.position.y;
+
+            // Calculate the direction to the target position
+            Vector3 direction = (targetPosition - ball.transform.position).normalized;
+
+            // Apply force to move the ball toward the target position
+            float distanceToTarget = Vector3.Distance(ball.transform.position, targetPosition);
+            float dynamicDribbleForce = dribbleForce * Mathf.Clamp(distanceToTarget, 1f, 5f);
+
+            ballRb.AddForce(direction * dynamicDribbleForce, ForceMode.Force);
+
+            // Actively correct the ball's velocity to prevent outward drift during rotation
+            Vector3 correctedVelocity = (targetPosition - ball.transform.position).normalized * dribbleForce;
+            ballRb.velocity = Vector3.Lerp(ballRb.velocity, correctedVelocity, Time.deltaTime * 10f);
+
+            // Limit the ball's overall velocity
+            if (ballRb.velocity.magnitude > dribbleForce)
+            {
+                ballRb.velocity = ballRb.velocity.normalized * dribbleForce;
+            }
         }
     }
 
-    void KickBall()
+    void KickBall(float force)
     {
         isDribbling = false;
-        Debug.Log("kick the ball!");
 
-        ballRb.isKinematic = false; // enable physics on the ball
-
-        // apply force
-        Vector3 kickDirection = transform.forward;
-        ballRb.AddForce(kickDirection * kickForce, ForceMode.Impulse);
+        // Apply the specified force to the ball in the ghost's forward direction
+        Vector3 direction = transform.forward;
+        ballRb.AddForce(direction * force, ForceMode.Impulse);
     }
 }

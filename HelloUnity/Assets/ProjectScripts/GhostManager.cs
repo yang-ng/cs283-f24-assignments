@@ -9,7 +9,7 @@ public class GhostManager : MonoBehaviour
 
     private GameObject controlledGhost; // currently controlled ghost
     private GameObject currentPlumbob; // plumbob instance
-    private const float switchThreshold = 0.5f; // threshold for switching control between ghosts
+    private const float switchThreshold = 0.2f; // threshold for switching control between ghosts
 
     void Start()
     {

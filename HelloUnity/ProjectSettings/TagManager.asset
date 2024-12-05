@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Collectible
   - Opponent
+  - GoalDetector
+  - Ball
   layers:
   - Default
   - TransparentFX
