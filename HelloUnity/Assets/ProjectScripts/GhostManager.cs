@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class GhostManager : MonoBehaviour
 {
     public List<GameObject> ghosts; // ghosts of the player's team
+    public GameObject goalkeeper; // goalkeeper of the player's team
     public GameObject ball; // soccer ball
     public GameObject plumbobPrefab; // prefab for the plumbob
 
@@ -35,22 +36,47 @@ public class GhostManager : MonoBehaviour
                 closestGhost = ghost;
             }
         }
-
-        // set the controlled ghost
+        
+        // Set the controlled ghost
         controlledGhost = closestGhost;
 
         foreach (GameObject ghost in ghosts)
         {
+            // Skip goalkeeper in this loop
+            if (ghost == goalkeeper)
+            {
+                continue;
+            }
+
             if (ghost == controlledGhost)
             {
                 ghost.GetComponent<GhostMotionController>().enabled = true;
-                ghost.GetComponent<TeammatesWander>().enabled = false;
+
+                if (ghost.TryGetComponent<TeammatesWander>(out TeammatesWander wander))
+                {
+                    wander.enabled = false;
+                }
             }
             else
             {
                 ghost.GetComponent<GhostMotionController>().enabled = false;
-                ghost.GetComponent<TeammatesWander>().enabled = true;
+
+                if (ghost.TryGetComponent<TeammatesWander>(out TeammatesWander wander))
+                {
+                    wander.enabled = true;
+                }
             }
+        }
+
+        // handle goalkeeper-specific behavior
+        if (controlledGhost == goalkeeper)
+        {
+            goalkeeper.GetComponent<PlayerGK>().OnPlayerControl();
+        }
+        else
+        {
+            goalkeeper.GetComponent<GhostMotionController>().enabled = false;
+            goalkeeper.GetComponent<PlayerGK>().OnPlayerRelease();
         }
 
         if (controlledGhost != null)
@@ -78,19 +104,34 @@ public class GhostManager : MonoBehaviour
         {
             float currentDistance = Vector3.Distance(controlledGhost.transform.position, ball.transform.position);
 
-            // only switch control if the closest ghost is closer than the threshold
+            // Only switch control if the closest ghost is closer than the threshold
             if (closestGhost != controlledGhost && closestDistance < currentDistance - switchThreshold)
             {
-                // transfer control to the closest ghost
+                // Transfer control to the closest ghost
                 controlledGhost.GetComponent<GhostMotionController>().enabled = false;
-                controlledGhost.GetComponent<TeammatesWander>().enabled = true;
+                if (controlledGhost == goalkeeper)
+                {
+                    goalkeeper.GetComponent<PlayerGK>().OnPlayerRelease();
+                }
+                else
+                {
+                    controlledGhost.GetComponent<TeammatesWander>().enabled = true;
+                }
 
                 controlledGhost = closestGhost;
 
                 if (controlledGhost != null)
                 {
                     controlledGhost.GetComponent<GhostMotionController>().enabled = true;
-                    controlledGhost.GetComponent<TeammatesWander>().enabled = false;
+                    if (controlledGhost == goalkeeper)
+                    {
+                        goalkeeper.GetComponent<PlayerGK>().OnPlayerControl();
+                    }
+                    else
+                    {
+                        controlledGhost.GetComponent<TeammatesWander>().enabled = false;
+                    }
+
                     SetPlumbob(controlledGhost);
                 }
             }
@@ -101,11 +142,11 @@ public class GhostManager : MonoBehaviour
     {
         if (currentPlumbob == null)
         {
-            // instantiate the plumbob if not existing
+            // Instantiate the plumbob if not existing
             currentPlumbob = Instantiate(plumbobPrefab);
         }
 
-        // attach the plumbob to the ghost and position it above
+        // Attach the plumbob to the ghost and position it above
         currentPlumbob.transform.SetParent(ghost.transform);
         currentPlumbob.transform.localPosition = new Vector3(0, 1.5f, 0);
     }
