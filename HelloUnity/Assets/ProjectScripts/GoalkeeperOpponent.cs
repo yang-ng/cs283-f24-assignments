@@ -55,13 +55,14 @@ public class OpponentGK : MonoBehaviour
         Rigidbody ballRb = ball.GetComponent<Rigidbody>();
         if (ballRb != null)
         {
+            BallControlTracker tracker = FindObjectOfType<BallControlTracker>();
+            tracker.RegisterKick("Opponent");
+
             // Calculate direction to kick the ball away
             Vector3 kickDirection = (ball.transform.position - transform.position).normalized;
 
             // Apply force to the ball
             ballRb.AddForce(kickDirection * kickForce, ForceMode.Impulse);
-
-            Debug.Log("Opponent GK kicked the ball!");
         }
     }
 }

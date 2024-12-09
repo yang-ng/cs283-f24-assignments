@@ -87,6 +87,9 @@ public class BallInteraction : MonoBehaviour
     {
         isDribbling = false;
 
+        BallControlTracker tracker = FindObjectOfType<BallControlTracker>();
+        tracker.RegisterKick("Player");
+
         // Apply the specified force to the ball in the ghost's forward direction
         Vector3 direction = transform.forward;
         ballRb.AddForce(direction * force, ForceMode.Impulse);
