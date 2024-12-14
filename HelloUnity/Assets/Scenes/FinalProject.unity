@@ -127,24 +127,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
   m_PrefabInstance: {fileID: 667791537}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &14238443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14238439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08c55b692993349eca15b1cdd26591cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerRole: 0
-  defensivePosition: {fileID: 1560242800}
-  playerGoal: {fileID: 1662412674}
-  speed: 0.6
-  passRange: 2.5
-  shootRange: 3
 --- !u!136 &14238444
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1129,12 +1111,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c55b692993349eca15b1cdd26591cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRole: 0
-  defensivePosition: {fileID: 1227578794}
-  playerGoal: {fileID: 1662412674}
+  ball: {fileID: 0}
+  playerGoal: {fileID: 0}
   speed: 0.6
-  passRange: 2.5
-  shootRange: 3
+  ballOffset: 1.5
+  dribbleForce: 5
+  shootRange: 5
+  shootForce: 15
+  passRange: 5
+  passForce: 10
+  teammates: []
+  defensivePosition: {x: 0, y: 0, z: 0}
+  ballRb: {fileID: 0}
+  isDribbling: 0
+  targetPosition: {x: 0, y: 0, z: 0}
+  ballControlTracker: {fileID: 0}
 --- !u!136 &383081249
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1296,24 +1287,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
   m_PrefabInstance: {fileID: 1916707796}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &485684069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485684065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08c55b692993349eca15b1cdd26591cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerRole: 0
-  defensivePosition: {fileID: 667470636}
-  playerGoal: {fileID: 1662412674}
-  speed: 0.6
-  passRange: 2.5
-  shootRange: 3
 --- !u!136 &485684070
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1484,7 +1457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       propertyPath: m_TagString
@@ -1587,12 +1560,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c55b692993349eca15b1cdd26591cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRole: 0
-  defensivePosition: {fileID: 304932262}
-  playerGoal: {fileID: 1662412674}
+  ball: {fileID: 0}
+  playerGoal: {fileID: 0}
   speed: 0.6
-  passRange: 2.5
-  shootRange: 3
+  ballOffset: 1.5
+  dribbleForce: 5
+  shootRange: 5
+  shootForce: 15
+  passRange: 5
+  passForce: 10
+  teammates: []
+  defensivePosition: {x: 0, y: 0, z: 0}
+  ballRb: {fileID: 0}
+  isDribbling: 0
+  targetPosition: {x: 0, y: 0, z: 0}
+  ballControlTracker: {fileID: 0}
 --- !u!136 &586868637
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1861,9 +1843,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 14238443}
-    - targetCorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 14238444}
   m_SourcePrefab: {fileID: 100100000, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
 --- !u!1 &709383941
@@ -1916,11 +1895,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.8
   turnSpeed: 150
---- !u!4 &751623512 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 796652407307068396, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
-  m_PrefabInstance: {fileID: 903864085}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &751623513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2134,6 +2108,10 @@ PrefabInstance:
       value: playerST1
       objectReference: {fileID: 0}
     - target: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -2248,7 +2226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       propertyPath: m_TagString
@@ -2696,13 +2674,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953480507}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 1.72, y: 2.68, z: -4.023}
+  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
+  m_LocalPosition: {x: 1.72, y: 2.08, z: -2.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
 --- !u!114 &953480511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2710,16 +2688,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953480507}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc4f12ce6335dd44da0b8f3a891cf2af, type: 3}
+  m_Script: {fileID: 11500000, guid: c5628db16a31c4667ac35cc219017adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 751623512}
-  hDist: 2
-  vDist: 0.5
-  springConstant: 20
-  dampConstant: 10
+  ball: {fileID: 2004889145}
+  followSpeed: 5
+  leftBoundary: 0.5
+  rightBoundary: 2.8
 --- !u!1 &968111873
 GameObject:
   m_ObjectHideFlags: 0
@@ -3401,7 +3378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       propertyPath: m_TagString
@@ -5225,7 +5202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 796652407307068396, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.11
+      value: 2.27
       objectReference: {fileID: 0}
     - target: {fileID: 796652407307068396, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5284,9 +5261,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 485684069}
     - targetCorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 485684070}
