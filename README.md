@@ -6,7 +6,8 @@ This image is also in the HelloUnity directory, it is named demoImage.
 
 The game is in HelloUnity,
 the scene is called Project.unity,
-the scripts are in Assets/ProjectScripts.
+the scripts are in Assets/ProjectScripts,
+the executable is in HelloUnity/Build.
 
 The prefabs are from Unity Assets Store.
 
