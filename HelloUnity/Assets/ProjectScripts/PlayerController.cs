@@ -7,6 +7,11 @@ public class GhostMotionController : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Instance.IsGameRunning())
+        {
+            return; // Skip update logic if the game is over
+        }
+        
         // forward movement (W key)
         if (Input.GetKey(KeyCode.W))
         {

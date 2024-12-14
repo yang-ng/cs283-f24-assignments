@@ -1,9 +1,12 @@
 using UnityEngine;
 using TMPro; // Required for TextMeshPro
+using UnityEngine.SceneManagement; // For scene reloading
 
 public class GameTimer : MonoBehaviour
 {
     public TextMeshProUGUI timerText; // Assign a TextMeshPro object in the Inspector
+    public TextMeshProUGUI endGameText; // Text for displaying "Full Time" and the final score
+    public GameObject endGameUI; // UI panel for "Play Again" and "Quit" buttons
     public float totalGameTime = 120f; // Total game time in real seconds (2 minutes)
     private float elapsedTime = 0f; // Elapsed real time
     private bool gameRunning = true; // Is the game running?
@@ -35,6 +38,25 @@ public class GameTimer : MonoBehaviour
     {
         gameRunning = false; // Stop the timer
         Debug.Log("Game Over!");
-        // Add your game-over logic here (e.g., stop player controls, display results)
+
+        GameManager.Instance.EndGame();
+        
+        // Display "Full Time" and final score
+        endGameText.text = $"Full Time\nFinal Score: Player {GameManager.Instance.GetPlayerScore()} - {GameManager.Instance.GetOpponentScore()}";
+        endGameUI.SetActive(true); // Show the end-game UI
+    }
+
+    // Called when the "Play Again" button is clicked
+    public void PlayAgain()
+    {
+        // Reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    // Called when the "Quit" button is clicked
+    public void QuitGame()
+    {
+        Debug.Log("Quitting Game...");
+        Application.Quit();
     }
 }

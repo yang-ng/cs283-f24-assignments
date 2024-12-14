@@ -51,20 +51,12 @@ public class GhostManager : MonoBehaviour
             if (ghost == controlledGhost)
             {
                 ghost.GetComponent<GhostMotionController>().enabled = true;
-
-                if (ghost.TryGetComponent<TeammatesWander>(out TeammatesWander wander))
-                {
-                    wander.enabled = false;
-                }
+                ghost.GetComponent<PlayerTeamBehavior>().enabled = false;
             }
             else
             {
                 ghost.GetComponent<GhostMotionController>().enabled = false;
-
-                if (ghost.TryGetComponent<TeammatesWander>(out TeammatesWander wander))
-                {
-                    wander.enabled = true;
-                }
+                ghost.GetComponent<PlayerTeamBehavior>().enabled = true;
             }
         }
 
@@ -115,7 +107,7 @@ public class GhostManager : MonoBehaviour
                 }
                 else
                 {
-                    controlledGhost.GetComponent<TeammatesWander>().enabled = true;
+                    controlledGhost.GetComponent<PlayerTeamBehavior>().enabled = true;
                 }
 
                 controlledGhost = closestGhost;
@@ -129,7 +121,7 @@ public class GhostManager : MonoBehaviour
                     }
                     else
                     {
-                        controlledGhost.GetComponent<TeammatesWander>().enabled = false;
+                        controlledGhost.GetComponent<PlayerTeamBehavior>().enabled = false;
                     }
 
                     SetPlumbob(controlledGhost);

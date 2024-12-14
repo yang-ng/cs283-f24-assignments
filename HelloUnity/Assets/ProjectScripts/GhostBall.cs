@@ -21,6 +21,11 @@ public class BallInteraction : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Instance.IsGameRunning())
+        {
+            return; // Skip update logic if the game is over
+        }
+        
         if (isDribbling)
         {
             DribbleBall();

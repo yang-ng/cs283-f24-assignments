@@ -17,6 +17,11 @@ public class OpponentGK : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Instance.IsGameRunning())
+        {
+            return; // Skip update logic if the game is over
+        }
+        
         SlideAlongPath();
     }
 
