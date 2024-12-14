@@ -1,5 +1,22 @@
 # cs283-f24-assignments
 
+Final Project: Phantom Kickers
+![phantomkickers](https://github.com/user-attachments/assets/13e7d3ac-c68a-47e9-87e0-3193a49c0234)
+This image is also in the HelloUnity directory, it is named demoImage.
+
+The game is in HelloUnity,
+the scene is called Project.unity,
+the scripts are in Assets/ProjectScripts.
+
+The prefabs are from Unity Assets Store.
+
+---------------------------------------------------------
+
+How to play: You will be controlling the team of the white phantoms, which is called Player's team. The control will switch between your phantoms based on their distance to the ball. You will always control the phantom that is the closest to the ball, and it is marked by a diamond on top of it. Use WAD to control the phantom's movement, press J to kick, press K to shoot(which is a heavier kick). The game is 90 minutes(2 minutes in real time). After the game ends, you can choose to play again or quit.
+
+Features implemented:
+
+
 Assignment 10
 
 2 NPCs are in the same scene A10_Behavior
