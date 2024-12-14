@@ -2,17 +2,17 @@
 
 Final Project: Phantom Kickers
 ![phantomkickers](https://github.com/user-attachments/assets/13e7d3ac-c68a-47e9-87e0-3193a49c0234)
-This image is also in the HelloUnity directory, it is named demoImage.
+- this image is also in the HelloUnity directory(named demoImage)
 
-The game is in HelloUnity,
+- the game is in HelloUnity
 
-the scene is called Project.unity,
+- the scene is called Project.unity
 
-the scripts are in Assets/ProjectScripts,
+- the scripts are in Assets/ProjectScripts
 
-the executable is in HelloUnity/Build.
+- the executable is in HelloUnity/Build
 
-The prefabs are from Unity Assets Store.
+- the prefabs are from Unity Assets Store
 
 ---------------------------------------------------------
 
