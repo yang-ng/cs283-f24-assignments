@@ -52,6 +52,14 @@ public class BallInteraction : MonoBehaviour
         }
     }
 
+        private void OnCollisionExit(Collision collision)
+    {
+        // Stop dribbling if the ball is no longer in contact
+        if (collision.gameObject == ball.gameObject)
+        {
+        }
+    }
+
     void StartDribbling()
     {
         isDribbling = true;

@@ -107,7 +107,6 @@ public class PlayerTeamBehavior : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, currentTarget, Time.deltaTime * speed);
     }
 
-
     private void Attack()
     {
         // If the player doesn't have a target or has reached the previous target, calculate a new one
@@ -115,22 +114,40 @@ public class PlayerTeamBehavior : MonoBehaviour
         {
             hasTarget = true;
 
-            // Generate a random distance between 2 and 4
-            float randomDistance = Random.Range(0.5f, 1.0f);
-
             // Direction towards the opponent's goal from the ball's position
             Vector3 goalDirection = (opponentGoal.position - ball.position).normalized;
 
-            // Generate a random offset angle for a spread effect
-            float randomAngle = Random.Range(-30f, 30f);
+            float randomAngle;
+            float randomDistance;
+
+            // Check if the ball is in the opponent's defensive zone
+            if (fieldManager.GetBallArea() == "OpponentDefensiveZone")
+            {
+                // Narrow angle (60 to 90 degrees) and shorter distance (1 to 2 units)
+                randomAngle = Random.Range(60f, 90f);
+                randomDistance = Random.Range(1f, 2f);
+            }
+            else
+            {
+                // Wider angle (30 to 90 degrees) and longer distance (1.5 to 2.5 units)
+                randomAngle = Random.Range(30f, 90f);
+                randomDistance = Random.Range(1.5f, 2.5f);
+            }
+
+            // Randomize direction: left or right
+            randomAngle *= Random.Range(0, 2) == 0 ? 1 : -1;
+
+            // Apply the random angle to the goal direction
             Quaternion rotation = Quaternion.Euler(0, randomAngle, 0);
-            Vector3 randomDirection = rotation * goalDirection;
+            Vector3 angledDirection = rotation * goalDirection;
 
             // Calculate the target position
-            currentTarget = ball.position + randomDirection * randomDistance;
+            currentTarget = ball.position + angledDirection * randomDistance;
 
             // Ensure the y-coordinate matches the transform's current height
             currentTarget.y = transform.position.y;
+
+            Debug.DrawLine(ball.position, currentTarget, Color.red, 1f); // Debug visualization
         }
     }
 

@@ -71,9 +71,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         gameRunning = false; // Stop the game
-
-        // Display the final score and "Full Time" message
-        endGameText.text = $"Full Time\nFinal Score: Player {teamAScore}:{teamBScore} Opponent";
+        endGameText.text = $"Full Time\nPlayer {teamAScore}:{teamBScore} Opponent";
         endGameUI.SetActive(true); // Show the end-game UI
     }
 

@@ -42,7 +42,7 @@ public class GameTimer : MonoBehaviour
         GameManager.Instance.EndGame();
         
         // Display "Full Time" and final score
-        endGameText.text = $"Full Time\nFinal Score: Player {GameManager.Instance.GetPlayerScore()} - {GameManager.Instance.GetOpponentScore()}";
+        endGameText.text = $"Full Time\nPlayer {GameManager.Instance.GetPlayerScore()} - {GameManager.Instance.GetOpponentScore()} Opponent";
         endGameUI.SetActive(true); // Show the end-game UI
     }
 
