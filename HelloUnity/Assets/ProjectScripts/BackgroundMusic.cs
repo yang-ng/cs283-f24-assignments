@@ -6,20 +6,14 @@ public class BackgroundMusic : MonoBehaviour
 
     void Awake()
     {
-        // Ensure there's only one BackgroundMusicManager in the scene
         if (FindObjectsOfType<BackgroundMusic>().Length > 1)
         {
             Destroy(gameObject);
             return;
         }
 
-        // Prevent this object from being destroyed between scenes
         DontDestroyOnLoad(gameObject);
-
-        // Get the AudioSource component
         audioSource = GetComponent<AudioSource>();
-
-        // Start playing the music
         PlayMusic();
     }
 

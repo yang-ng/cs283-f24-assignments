@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 public class GhostManager : MonoBehaviour
 {
-    public List<GameObject> ghosts; // ghosts of the player's team
-    public GameObject goalkeeper; // goalkeeper of the player's team
-    public GameObject ball; // soccer ball
-    public GameObject plumbobPrefab; // prefab for the plumbob
+    public List<GameObject> ghosts;
+    public GameObject goalkeeper;
+    public GameObject ball;
+    public GameObject plumbobPrefab;
 
-    private GameObject controlledGhost; // currently controlled ghost
-    private GameObject currentPlumbob; // plumbob instance
+    private GameObject controlledGhost;
+    private GameObject currentPlumbob;
     private const float switchThreshold = 0.2f; // threshold for switching control between ghosts
 
     void Start()
@@ -37,12 +37,10 @@ public class GhostManager : MonoBehaviour
             }
         }
         
-        // Set the controlled ghost
         controlledGhost = closestGhost;
 
         foreach (GameObject ghost in ghosts)
         {
-            // Skip goalkeeper in this loop
             if (ghost == goalkeeper)
             {
                 continue;
@@ -60,7 +58,6 @@ public class GhostManager : MonoBehaviour
             }
         }
 
-        // handle goalkeeper-specific behavior
         if (controlledGhost == goalkeeper)
         {
             goalkeeper.GetComponent<PlayerGK>().OnPlayerControl();
@@ -96,10 +93,9 @@ public class GhostManager : MonoBehaviour
         {
             float currentDistance = Vector3.Distance(controlledGhost.transform.position, ball.transform.position);
 
-            // Only switch control if the closest ghost is closer than the threshold
+            // only switch control if the closest ghost is closer than the threshold
             if (closestGhost != controlledGhost && closestDistance < currentDistance - switchThreshold)
             {
-                // Transfer control to the closest ghost
                 controlledGhost.GetComponent<GhostMotionController>().enabled = false;
                 if (controlledGhost == goalkeeper)
                 {
@@ -134,11 +130,8 @@ public class GhostManager : MonoBehaviour
     {
         if (currentPlumbob == null)
         {
-            // Instantiate the plumbob if not existing
             currentPlumbob = Instantiate(plumbobPrefab);
         }
-
-        // Attach the plumbob to the ghost and position it above
         currentPlumbob.transform.SetParent(ghost.transform);
         currentPlumbob.transform.localPosition = new Vector3(0, 1.5f, 0);
     }

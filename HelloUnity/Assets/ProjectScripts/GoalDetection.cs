@@ -8,7 +8,7 @@ public class GoalDetector : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            // Get the position of the ball relative to the goal
+            // get the position of the ball relative to the goal
             Vector3 ballToGoal = other.transform.position - transform.position;
 
             // check if the ball is entering from the correct side

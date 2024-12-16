@@ -2,29 +2,29 @@ using UnityEngine;
 
 public class GhostMotionController : MonoBehaviour
 {
-    public float moveSpeed = 5f; // forward movement speed
-    public float turnSpeed = 200f; // rotation speed
+    public float moveSpeed = 5f;
+    public float turnSpeed = 200f;
 
     void Update()
     {
         if (!GameManager.Instance.IsGameRunning())
         {
-            return; // Skip update logic if the game is over
+            return;
         }
         
-        // forward movement (W key)
+        // forward movement
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         }
 
-        // rotate left (A key)
+        // rotate left
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
         }
 
-        // rotate right (D key)
+        // rotate right
         if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);

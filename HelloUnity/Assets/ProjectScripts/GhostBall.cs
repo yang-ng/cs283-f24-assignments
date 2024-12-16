@@ -23,7 +23,7 @@ public class BallInteraction : MonoBehaviour
     {
         if (!GameManager.Instance.IsGameRunning())
         {
-            return; // Skip update logic if the game is over
+            return;
         }
         
         if (isDribbling)
@@ -31,13 +31,11 @@ public class BallInteraction : MonoBehaviour
             DribbleBall();
         }
 
-        // Kick action with key J
         if (isDribbling && Input.GetKeyDown(KeyCode.J))
         {
             KickBall(kickForce);
         }
 
-        // Shoot action with key K
         if (isDribbling && Input.GetKeyDown(KeyCode.K))
         {
             KickBall(shootForce);
@@ -54,7 +52,6 @@ public class BallInteraction : MonoBehaviour
 
         private void OnCollisionExit(Collision collision)
     {
-        // Stop dribbling if the ball is no longer in contact
         if (collision.gameObject == ball.gameObject)
         {
         }
@@ -69,26 +66,14 @@ public class BallInteraction : MonoBehaviour
     {
         if (ball != null)
         {
-            // Calculate the target position slightly in front of the ghost
             Vector3 targetPosition = transform.position + transform.forward * ballOffset;
-
-            // Keep the ball on the ground
             targetPosition.y = ball.transform.position.y;
-
-            // Calculate the direction to the target position
             Vector3 direction = (targetPosition - ball.transform.position).normalized;
-
-            // Apply force to move the ball toward the target position
             float distanceToTarget = Vector3.Distance(ball.transform.position, targetPosition);
             float dynamicDribbleForce = dribbleForce * Mathf.Clamp(distanceToTarget, 1f, 5f);
-
             ballRb.AddForce(direction * dynamicDribbleForce, ForceMode.Force);
-
-            // Actively correct the ball's velocity to prevent outward drift during rotation
             Vector3 correctedVelocity = (targetPosition - ball.transform.position).normalized * dribbleForce;
             ballRb.velocity = Vector3.Lerp(ballRb.velocity, correctedVelocity, Time.deltaTime * 10f);
-
-            // Limit the ball's overall velocity
             if (ballRb.velocity.magnitude > dribbleForce)
             {
                 ballRb.velocity = ballRb.velocity.normalized * dribbleForce;
@@ -99,11 +84,8 @@ public class BallInteraction : MonoBehaviour
     void KickBall(float force)
     {
         isDribbling = false;
-
         BallControlTracker tracker = FindObjectOfType<BallControlTracker>();
         tracker.RegisterKick("Player");
-
-        // Apply the specified force to the ball in the ghost's forward direction
         Vector3 direction = transform.forward;
         ballRb.AddForce(direction * force, ForceMode.Impulse);
     }

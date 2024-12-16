@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class OpponentGK : MonoBehaviour
 {
-    public Transform pathStart; // Start position of the sliding path
-    public Transform pathEnd;   // End position of the sliding path
-    public float slideSpeed = 2f; // Speed of sliding along the path
-    public float kickForce = 15f; // Force applied to the ball when kicked
+    public Transform pathStart;
+    public Transform pathEnd;
+    public float slideSpeed = 2f;
+    public float kickForce = 15f;
 
-    private Vector3 targetPosition; // The next target position on the sliding path
-    private bool movingToEnd = true; // Sliding direction along the path
+    private Vector3 targetPosition;
+    private bool movingToEnd = true;
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class OpponentGK : MonoBehaviour
     {
         if (!GameManager.Instance.IsGameRunning())
         {
-            return; // Skip update logic if the game is over
+            return;
         }
         
         SlideAlongPath();
@@ -27,13 +27,9 @@ public class OpponentGK : MonoBehaviour
 
     private void SlideAlongPath()
     {
-        // Move towards the target position
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, slideSpeed * Time.deltaTime);
-
-        // Check if the GK reached the target position
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
-            // Switch direction
             if (movingToEnd)
             {
                 targetPosition = pathEnd.position;
@@ -49,7 +45,7 @@ public class OpponentGK : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ball")) // Ensure the collided object is the ball
+        if (collision.gameObject.CompareTag("Ball"))
         {
             KickBall(collision.gameObject);
         }
@@ -62,11 +58,7 @@ public class OpponentGK : MonoBehaviour
         {
             BallControlTracker tracker = FindObjectOfType<BallControlTracker>();
             tracker.RegisterKick("Opponent");
-
-            // Calculate direction to kick the ball away
             Vector3 kickDirection = (ball.transform.position - transform.position).normalized;
-
-            // Apply force to the ball
             ballRb.AddForce(kickDirection * kickForce, ForceMode.Impulse);
         }
     }

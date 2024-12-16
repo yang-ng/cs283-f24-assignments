@@ -1,36 +1,35 @@
 using UnityEngine;
-using System.Linq; // For working with collections
+using System.Linq;
 
 public class OpponentTeamBehavior : MonoBehaviour
 {
     public enum Role { Defender, Striker }
-    public Role opponentRole; // Assign role (Defender or Striker) in the Inspector
+    public Role opponentRole; // Defender or Striker
 
-    public Transform defensivePosition; // Position to hold when defending
-    public Transform opponentGoal; // Reference to the opponent's goal
-    public Transform playerGoal; // Reference to the player's goal
-    public float speed = 0.5f; // Movement speed
-    public float passRange = 3f; // Range within which the ball can be passed
-    public float kickForce = 3f; // Force applied to the ball on kick
+    public Transform defensivePosition;
+    public Transform opponentGoal;
+    public Transform playerGoal;
+    public float speed = 0.5f;
+    public float passRange = 3f;
+    public float kickForce = 3f;
 
-    private BallControlTracker ballControlTracker; // Reference to the ball control tracker
-    private FieldManager fieldManager; // Reference to the field manager
-    private Transform ball; // Reference to the ball
-    private Rigidbody ballRb; // Rigidbody of the ball
+    private BallControlTracker ballControlTracker;
+    private FieldManager fieldManager;
+    private Transform ball;
+    private Rigidbody ballRb;
 
-    private Vector3 currentTarget; // Current target position
-    private string lastPossessor = "None"; // Tracks the last known possessor of the ball
-    private bool hasTarget = false; // Indicates if the player is moving toward a target
-    private bool isDribbling = false; // Indicates whether the striker is currently dribbling the ball
-
+    private Vector3 currentTarget;
+    private string lastPossessor = "None";
+    private bool hasTarget = false; 
+    private bool isDribbling = false;
 
     private void Start()
     {
         ballControlTracker = FindObjectOfType<BallControlTracker>();
         fieldManager = FindObjectOfType<FieldManager>();
-        ball = fieldManager.ball; // Get the ball transform
+        ball = fieldManager.ball；
         ballRb = ball.GetComponent<Rigidbody>();
-        currentTarget = transform.position; // Start with the current position
+        currentTarget = transform.position;
     }
 
     private void Update()
@@ -41,7 +40,7 @@ public class OpponentTeamBehavior : MonoBehaviour
         if (currentPossessor != lastPossessor)
         {
             lastPossessor = currentPossessor;
-            hasTarget = false; // Reset target if possession changes
+            hasTarget = false;
         }
 
         if (currentPossessor == "Opponent")
@@ -54,14 +53,14 @@ public class OpponentTeamBehavior : MonoBehaviour
                 }
                 else if (opponentRole == Role.Striker)
                 {
-                    HoldDefensivePosition(); // DONE
+                    HoldDefensivePosition();
                 }
             }
             else
             {
                 if (opponentRole == Role.Defender)
                 {
-                    HoldDefensivePosition(); // DONE
+                    HoldDefensivePosition();
                 }
                 else if (opponentRole == Role.Striker)
                 {
@@ -75,22 +74,22 @@ public class OpponentTeamBehavior : MonoBehaviour
             {
                 if (opponentRole == Role.Defender)
                 {
-                    GoToBallAndKick(); // DONE
+                    GoToBallAndKick();
                 }
                 else if (opponentRole == Role.Striker)
                 {
-                    HoldDefensivePosition(); // DONE
+                    HoldDefensivePosition(); 
                 }
             }
             else
             {
                 if (opponentRole == Role.Defender)
                 {
-                    HoldDefensivePosition(); // DONE
+                    HoldDefensivePosition();
                 }
                 else if (opponentRole == Role.Striker)
                 {
-                    GoToBallAndKick(); // DONE
+                    GoToBallAndKick();
                 }
             }
         }
@@ -98,7 +97,7 @@ public class OpponentTeamBehavior : MonoBehaviour
         {
             if (opponentRole == Role.Defender)
             {
-                HoldDefensivePosition(); // DONE
+                HoldDefensivePosition();
             }
             else if (opponentRole == Role.Striker)
             {
@@ -111,7 +110,7 @@ public class OpponentTeamBehavior : MonoBehaviour
 
     private void HandleDefenderInDefensiveZone()
     {
-        // Determine the closer defender to the ball
+        // determine the closer defender to the ball
         var allDefenders = FindObjectsOfType<OpponentTeamBehavior>().Where(x => x.opponentRole == Role.Defender);
         var closestDefender = allDefenders.OrderBy(x => Vector3.Distance(x.transform.position, ball.position)).First();
 
@@ -124,7 +123,6 @@ public class OpponentTeamBehavior : MonoBehaviour
             HoldDefensivePosition();
         }
 
-        // If the ball is in possession, pass it to a striker
         if (isDribbling)
         {
             PassToClosestTeammate(Role.Striker);
@@ -140,37 +138,30 @@ public class OpponentTeamBehavior : MonoBehaviour
         {
             if (isDribbling)
             {
-                // If within shooting range, shoot at the goal
                 if (Vector3.Distance(transform.position, playerGoal.position) <= passRange)
                 {
                     Shoot();
                 }
                 else
                 {
-                    // Move toward the player's goal and dribble
                     currentTarget = playerGoal.position;
-
-                    // Prevent moving backward with strict forward validation
                     if (Vector3.Dot((currentTarget - ball.position).normalized, (playerGoal.position - ball.position).normalized) < 0)
                     {
                         currentTarget = ball.position + (playerGoal.position - ball.position).normalized * 1.5f;
                     }
-
                     DribbleBall();
                 }
             }
             else
             {
-                // Move toward the ball to start dribbling
                 currentTarget = ball.position;
             }
         }
 
-        else // If not the closest to the ball
+        else // if not the closest to the ball
         {
             Vector3 ballDirection = (playerGoal.position - ball.position).normalized;
 
-            // Add a random angle to ensure strikers don't overlap
             float randomAngle = Random.Range(30f, 90f);
             randomAngle *= Random.Range(0, 2) == 0 ? 1 : -1;
             Quaternion angleOffset = Quaternion.Euler(0, randomAngle, 0);
@@ -179,7 +170,6 @@ public class OpponentTeamBehavior : MonoBehaviour
             float randomDistance = Random.Range(1.5f, 2.5f);
             currentTarget = ball.position + adjustedDirection * randomDistance;
 
-            // Ensure the target remains forward
             if (Vector3.Dot((currentTarget - ball.position).normalized, (playerGoal.position - ball.position).normalized) < 0)
             {
                 currentTarget = ball.position + ballDirection * randomDistance;
@@ -211,13 +201,11 @@ public class OpponentTeamBehavior : MonoBehaviour
 
             Vector3 directionToGoal = (playerGoal.position - ball.transform.position).normalized;
 
-            // Add slight correction toward the goal to prevent backward dribbling
             Vector3 correctedDirection = Vector3.Lerp((targetPosition - ball.transform.position).normalized, directionToGoal, 0.3f).normalized;
 
             float dynamicDribbleForce = 1f * Mathf.Clamp(Vector3.Distance(ball.transform.position, targetPosition), 1f, 5f);
             ballRb.AddForce(correctedDirection * dynamicDribbleForce, ForceMode.Force);
 
-            // Limit ball velocity to prevent drifting
             if (ballRb.velocity.magnitude > 1f)
             {
                 ballRb.velocity = ballRb.velocity.normalized * 1f;
@@ -227,21 +215,11 @@ public class OpponentTeamBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // If the striker collides with the ball, start dribbling
         if (collision.gameObject == ball.gameObject)
         {
             isDribbling = true;
         }
     }
-
-    // private void OnCollisionExit(Collision collision)
-    // {
-    //     // Stop dribbling if the ball is no longer in contact
-    //     if (collision.gameObject == ball.gameObject)
-    //     {
-    //         isDribbling = false;
-    //     }
-    // }
 
     private void HoldDefensivePosition()
     {
@@ -266,15 +244,12 @@ public class OpponentTeamBehavior : MonoBehaviour
 
     private void GoToBallAndKick()
     {
-        // Find all opponent strikers
         var teammates = FindObjectsOfType<OpponentTeamBehavior>().Where(x => x.opponentRole == opponentRole);
 
-        // Determine the closest striker to the ball
         var closestTeammate = teammates.OrderBy(x => Vector3.Distance(x.transform.position, ball.position)).First();
 
         if (closestTeammate == this)
         {
-            // If this is the closest striker, go directly to the ball
             currentTarget = ball.position;
 
             if (Vector3.Distance(transform.position, ball.position) < 0.1f)
@@ -284,17 +259,14 @@ public class OpponentTeamBehavior : MonoBehaviour
         }
         else
         {
-            // If this is not the closest striker, go to a support position near the ball
             Vector3 ballDirection = (playerGoal.position - ball.position).normalized;
 
-            // Offset by a random angle to spread out the strikers
-            float randomAngle = Random.Range(-20f, 20f); // Small angle offset for support
+            float randomAngle = Random.Range(-20f, 20f);
             Quaternion angleOffset = Quaternion.Euler(0, randomAngle, 0);
             Vector3 offsetDirection = angleOffset * ballDirection;
 
-            // Set the target position near the ball but offset
-            currentTarget = ball.position + offsetDirection * 1f; // Stay 1.5 units away from the ball
-            currentTarget.y = transform.position.y; // Ensure y-coordinate is correct
+            currentTarget = ball.position + offsetDirection * 1f;
+            currentTarget.y = transform.position.y;
         }
     }
 
