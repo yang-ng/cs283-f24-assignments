@@ -16,25 +16,6 @@ Final Project: Phantom Kickers
 
 How to play: You will be controlling the team of the white phantoms, which is called Player's team. The control will switch between your phantoms based on their distance to the ball. You will always control the phantom that is the closest to the ball, and it is marked by a diamond on top of it. Use W/A/D to control the phantom's movement, press J to kick, press K to shoot(which is a heavier kick). The game is 90 minutes(2 minutes in real time). After the game ends, you can choose to play again or quit.
 
-
-video demos:
-
-Player attacking:
-
-https://github.com/user-attachments/assets/223177fb-d093-4465-aac6-3b50deefd227
-
-At the end of game(Full time of the match), you can choose to play again or quit:
-
-https://github.com/user-attachments/assets/14bf0e93-0d08-4376-b792-cb8730dc06c0
-
-Player's goal(score board is updated):
-
-https://github.com/user-attachments/assets/b9d3f638-bcad-4c7c-a10f-dc76de70fb3b
-
-Opponent attacking:
-
-https://github.com/user-attachments/assets/fef80bbb-bd1b-4125-97d0-be23fd822177
-
 ---------------------------------------------------------
 
 Features implemented:
@@ -90,7 +71,28 @@ Features implemented:
 - Broadcast camera: the camera follows the ball horizontally, mimicing the broadcast view of a real soccer game.
 
   Script: CameraFollow
-  
+
+---------------------------------------------------------
+
+Video demos:
+
+Player attacking:
+
+https://github.com/user-attachments/assets/223177fb-d093-4465-aac6-3b50deefd227
+
+At the end of game(Full time of the match), you can choose to play again or quit:
+
+https://github.com/user-attachments/assets/14bf0e93-0d08-4376-b792-cb8730dc06c0
+
+Player's goal(score board is updated):
+
+https://github.com/user-attachments/assets/b9d3f638-bcad-4c7c-a10f-dc76de70fb3b
+
+Opponent attacking:
+
+https://github.com/user-attachments/assets/fef80bbb-bd1b-4125-97d0-be23fd822177
+
+
 ---------------------------------------------------------
 
 Assignment 10
