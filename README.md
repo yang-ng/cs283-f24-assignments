@@ -35,11 +35,19 @@ Opponent attacking:
 
 https://github.com/user-attachments/assets/fef80bbb-bd1b-4125-97d0-be23fd822177
 
-
+---------------------------------------------------------
 
 Features implemented:
 
+Player control: The player can use W/A/D/J/K to let the controlled character move, rotate, and kick.
+Scripts: PlayerController, GhostBall
 
+Behavior of currently not controlled teammates: When the player is controlling one character, its teammates will also mimic what the players do in a real soccer game. eg: a striker will wait for a pass, defenders will hold their defensive positions.
+Script: PlayerTeamBehavior
+
+
+
+---------------------------------------------------------
 Assignment 10
 
 2 NPCs are in the same scene A10_Behavior
