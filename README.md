@@ -63,10 +63,36 @@ Features implemented:
 
   Script: GoalkeeperOpponent
 
-- Goal detection: when the ball goes into the goal, a goal is registered. It 
+- Goal detection: when the ball goes into the goal from the right direction(so taking the ball from behind of the goal into it won't count), a goal is registered.
 
+  Script: GoalDetection
 
+- Game timing: the time of the game is counted and ends after 90 minutes(2 minutes in real time).
+
+  Script: GameTimer, GameManager
+
+- Score tracking: goals are registerd and scores are recorded and displayed on the screen.
+
+  Script: GameManager
+  
+- Field division: the field is divided into 3 parts, the behavior of the characters are based on which part of the field the ball is currently in.
+
+  Script: FieldManager
+
+- Ball controll tracking: tracks which team is currently possesing the ball, the behavior of the characters are based on this.
+
+  Script: BallControlTracker
+
+- Background music: a world cup song is used for bgm, it is play on loop.
+
+  Script: BackgroundMusic
+
+- Broadcast camera: the camera follows the ball horizontally, mimicing the broadcast view of a real soccer game.
+
+  Script: CameraFollow
+  
 ---------------------------------------------------------
+
 Assignment 10
 
 2 NPCs are in the same scene A10_Behavior
