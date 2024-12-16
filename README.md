@@ -21,20 +21,20 @@ video demos:
 
 Player attacking:
 
-
 https://github.com/user-attachments/assets/223177fb-d093-4465-aac6-3b50deefd227
 
-
-
-
 At the end of game(Full time of the match), you can choose to play again or quit:
-https://github.com/user-attachments/assets/bf5fbc8b-172a-420b-ace1-f372b1cf515b
+
+https://github.com/user-attachments/assets/14bf0e93-0d08-4376-b792-cb8730dc06c0
 
 Player's goal(score board is updated):
-https://github.com/user-attachments/assets/f205184a-06f6-4fe4-9fec-8b3b3903029f
+
+https://github.com/user-attachments/assets/b9d3f638-bcad-4c7c-a10f-dc76de70fb3b
 
 Opponent attacking:
-https://github.com/user-attachments/assets/5406183b-6323-4d50-bf9d-66e078ad7ec6
+
+https://github.com/user-attachments/assets/fef80bbb-bd1b-4125-97d0-be23fd822177
+
 
 
 Features implemented:
