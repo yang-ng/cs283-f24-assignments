@@ -10,13 +10,27 @@ Final Project: Phantom Kickers
 
 - the scripts are in Assets/ProjectScripts
 
-- the executable is in HelloUnity/Build
-
 - the prefabs are from Unity Assets Store
 
 ---------------------------------------------------------
 
-How to play: You will be controlling the team of the white phantoms, which is called Player's team. The control will switch between your phantoms based on their distance to the ball. You will always control the phantom that is the closest to the ball, and it is marked by a diamond on top of it. Use WAD to control the phantom's movement, press J to kick, press K to shoot(which is a heavier kick). The game is 90 minutes(2 minutes in real time). After the game ends, you can choose to play again or quit.
+How to play: You will be controlling the team of the white phantoms, which is called Player's team. The control will switch between your phantoms based on their distance to the ball. You will always control the phantom that is the closest to the ball, and it is marked by a diamond on top of it. Use W/A/D to control the phantom's movement, press J to kick, press K to shoot(which is a heavier kick). The game is 90 minutes(2 minutes in real time). After the game ends, you can choose to play again or quit.
+
+
+video demos:
+
+Player attacking:
+https://github.com/user-attachments/assets/1a548fa8-67b9-4b70-b469-6b7bbd78e94c
+
+At the end of game(Full time of the match), you can choose to play again or quit:
+https://github.com/user-attachments/assets/bf5fbc8b-172a-420b-ace1-f372b1cf515b
+
+Player's goal(score board is updated):
+https://github.com/user-attachments/assets/f205184a-06f6-4fe4-9fec-8b3b3903029f
+
+Opponent attacking:
+https://github.com/user-attachments/assets/5406183b-6323-4d50-bf9d-66e078ad7ec6
+
 
 Features implemented:
 
