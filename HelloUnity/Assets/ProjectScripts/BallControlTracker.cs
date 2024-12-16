@@ -6,16 +6,6 @@ public class BallControlTracker : MonoBehaviour
 
     private string lastKicker = "None"; // Last team to kick the ball ("Player" or "Opponent")
 
-    void Update()
-    {
-        // When spacebar is pressed, print the current controller of the ball
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            string controllerToPrint = CurrentDribbler != "None" ? CurrentDribbler : $"Last kicker: {lastKicker}";
-            Debug.Log($"{controllerToPrint}");
-        }
-    }
-
     void OnCollisionEnter(Collision collision)
     {
         // Check if the ball is colliding with a player or opponent
