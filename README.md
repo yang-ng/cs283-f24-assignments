@@ -41,12 +41,29 @@ Features implemented:
 
 - Player control: The player can use W/A/D/J/K to let the controlled character move, rotate, and kick.
 
-Scripts: PlayerController, GhostBall
+  Scripts: PlayerController, GhostBall
+
+- Management of Player's team: the closest character closest to the ball will be controlled by the player and marked with a diamond on top of it.
+
+  Script: GhostManager
 
 - Behavior of currently not controlled teammates: When the player is controlling one character, its teammates will also mimic what the players do in a real soccer game. eg: a striker will wait for a pass, defenders will hold their defensive positions.
-- 
-Script: PlayerTeamBehavior
+  
+  Script: PlayerTeamBehavior
 
+- Goalkeeper of the Player's team: it will slide in front of the goal when it is not controlled
+
+  Script: GoalkeeperPlayer
+
+- Behavior of the Opponent team: they will attack and defend mimicing real soccer players
+  
+  Script: OpponentTeamBehavior
+  
+- Goalkeeper of the Opponent's team: it will slide in front of the goal and kick when a ball comes
+
+  Script: GoalkeeperOpponent
+
+- Goal detection: when the ball goes into the goal, a goal is registered. It 
 
 
 ---------------------------------------------------------
