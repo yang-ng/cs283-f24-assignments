@@ -168,7 +168,7 @@ MonoBehaviour:
   playerGoal: {fileID: 1662412674}
   speed: 0.6
   passRange: 2
-  kickForce: 3
+  kickForce: 3.5
 --- !u!1001 &17041937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,7 +330,7 @@ MonoBehaviour:
   ballOffset: 0.1
   dribbleForce: 1
   kickForce: 2.5
-  shootForce: 3.5
+  shootForce: 4
 --- !u!114 &17041941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1353,7 +1353,7 @@ MonoBehaviour:
   playerGoal: {fileID: 1662412674}
   speed: 0.6
   passRange: 2
-  kickForce: 3
+  kickForce: 3.5
 --- !u!1 &493703629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,7 +1979,7 @@ MonoBehaviour:
   ballOffset: 0.1
   dribbleForce: 1
   kickForce: 2.5
-  shootForce: 3.5
+  shootForce: 4
 --- !u!136 &751623515
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2018,7 +2018,7 @@ MonoBehaviour:
   playerRole: 1
   defensivePosition: {fileID: 1864835772}
   opponentGoal: {fileID: 941147870}
-  speed: 0.5
+  speed: 0.3
 --- !u!1 &836238723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2432,7 +2432,7 @@ MonoBehaviour:
   ballOffset: 0.1
   dribbleForce: 1
   kickForce: 2.5
-  shootForce: 3.5
+  shootForce: 4
 --- !u!136 &905060208
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2471,7 +2471,7 @@ MonoBehaviour:
   playerRole: 1
   defensivePosition: {fileID: 1128889419}
   opponentGoal: {fileID: 941147870}
-  speed: 0.5
+  speed: 0.3
 --- !u!1 &919861022
 GameObject:
   m_ObjectHideFlags: 0
@@ -3136,7 +3136,7 @@ MonoBehaviour:
   ballOffset: 0.1
   dribbleForce: 1
   kickForce: 2.5
-  shootForce: 3.5
+  shootForce: 4
 --- !u!136 &990620862
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3907,7 +3907,7 @@ MonoBehaviour:
   ballOffset: 0.1
   dribbleForce: 1
   kickForce: 2.5
-  shootForce: 3.5
+  shootForce: 4
 --- !u!114 &1456269383
 MonoBehaviour:
   m_ObjectHideFlags: 0

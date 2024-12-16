@@ -54,14 +54,14 @@ public class OpponentTeamBehavior : MonoBehaviour
                 }
                 else if (opponentRole == Role.Striker)
                 {
-                    HoldDefensivePosition();
+                    HoldDefensivePosition(); // DONE
                 }
             }
             else
             {
                 if (opponentRole == Role.Defender)
                 {
-                    HoldDefensivePosition();
+                    HoldDefensivePosition(); // DONE
                 }
                 else if (opponentRole == Role.Striker)
                 {
@@ -75,22 +75,22 @@ public class OpponentTeamBehavior : MonoBehaviour
             {
                 if (opponentRole == Role.Defender)
                 {
-                    GoToBallAndKick();
+                    GoToBallAndKick(); // DONE
                 }
                 else if (opponentRole == Role.Striker)
                 {
-                    HoldDefensivePosition();
+                    HoldDefensivePosition(); // DONE
                 }
             }
             else
             {
                 if (opponentRole == Role.Defender)
                 {
-                    HoldDefensivePosition();
+                    HoldDefensivePosition(); // DONE
                 }
                 else if (opponentRole == Role.Striker)
                 {
-                    GoToBallAndKick();
+                    GoToBallAndKick(); // DONE
                 }
             }
         }
@@ -98,7 +98,7 @@ public class OpponentTeamBehavior : MonoBehaviour
         {
             if (opponentRole == Role.Defender)
             {
-                HoldDefensivePosition();
+                HoldDefensivePosition(); // DONE
             }
             else if (opponentRole == Role.Striker)
             {
@@ -133,7 +133,6 @@ public class OpponentTeamBehavior : MonoBehaviour
 
     private void HandleStrikerOutsideDefensiveZone()
     {
-        // Determine the closer striker to the ball
         var allStrikers = FindObjectsOfType<OpponentTeamBehavior>().Where(x => x.opponentRole == Role.Striker);
         var closestStriker = allStrikers.OrderBy(x => Vector3.Distance(x.transform.position, ball.position)).First();
 
@@ -148,18 +147,16 @@ public class OpponentTeamBehavior : MonoBehaviour
                 }
                 else
                 {
-                    // Move toward the player goal and dribble
+                    // Move toward the player's goal and dribble
                     currentTarget = playerGoal.position;
 
-                    // Decide whether to pass or continue dribbling
-                    if (Random.Range(0, 2) == 0) // 50% chance to pass
+                    // Prevent moving backward with strict forward validation
+                    if (Vector3.Dot((currentTarget - ball.position).normalized, (playerGoal.position - ball.position).normalized) < 0)
                     {
-                        PassToClosestTeammate(Role.Striker);
+                        currentTarget = ball.position + (playerGoal.position - ball.position).normalized * 1.5f;
                     }
-                    else
-                    {
-                        DribbleBall();
-                    }
+
+                    DribbleBall();
                 }
             }
             else
@@ -168,30 +165,30 @@ public class OpponentTeamBehavior : MonoBehaviour
                 currentTarget = ball.position;
             }
         }
-        else
+
+        else // If not the closest to the ball
         {
-            // Generate a position in front of the ball, closer to the player goal
             Vector3 ballDirection = (playerGoal.position - ball.position).normalized;
 
-            // Constrain angle and distance
+            // Add a random angle to ensure strikers don't overlap
             float randomAngle = Random.Range(30f, 90f);
-            randomAngle *= Random.Range(0, 2) == 0 ? 1 : -1; // Randomize left/right
+            randomAngle *= Random.Range(0, 2) == 0 ? 1 : -1;
             Quaternion angleOffset = Quaternion.Euler(0, randomAngle, 0);
             Vector3 adjustedDirection = angleOffset * ballDirection;
 
             float randomDistance = Random.Range(1.5f, 2.5f);
             currentTarget = ball.position + adjustedDirection * randomDistance;
 
-            // Ensure the target is closer to the player goal
-            if (Vector3.Distance(currentTarget, playerGoal.position) > Vector3.Distance(ball.position, playerGoal.position))
+            // Ensure the target remains forward
+            if (Vector3.Dot((currentTarget - ball.position).normalized, (playerGoal.position - ball.position).normalized) < 0)
             {
                 currentTarget = ball.position + ballDirection * randomDistance;
             }
 
-            // Ensure the Y-coordinate matches the transform's height
             currentTarget.y = transform.position.y;
         }
     }
+
 
     private void Shoot()
     {
@@ -209,26 +206,18 @@ public class OpponentTeamBehavior : MonoBehaviour
     {
         if (ball != null)
         {
-            // Calculate the target position slightly in front of the ghost
             Vector3 targetPosition = transform.position + transform.forward * 0.1f;
-
-            // Keep the ball on the ground
             targetPosition.y = ball.transform.position.y;
 
-            // Calculate the direction to the target position
-            Vector3 direction = (targetPosition - ball.transform.position).normalized;
+            Vector3 directionToGoal = (playerGoal.position - ball.transform.position).normalized;
 
-            // Apply force to move the ball toward the target position
-            float distanceToTarget = Vector3.Distance(ball.transform.position, targetPosition);
-            float dynamicDribbleForce = 1f * Mathf.Clamp(distanceToTarget, 1f, 5f);
+            // Add slight correction toward the goal to prevent backward dribbling
+            Vector3 correctedDirection = Vector3.Lerp((targetPosition - ball.transform.position).normalized, directionToGoal, 0.3f).normalized;
 
-            ballRb.AddForce(direction * dynamicDribbleForce, ForceMode.Force);
+            float dynamicDribbleForce = 1f * Mathf.Clamp(Vector3.Distance(ball.transform.position, targetPosition), 1f, 5f);
+            ballRb.AddForce(correctedDirection * dynamicDribbleForce, ForceMode.Force);
 
-            // Actively correct the ball's velocity to prevent outward drift during rotation
-            Vector3 correctedVelocity = (targetPosition - ball.transform.position).normalized * 1f;
-            ballRb.velocity = Vector3.Lerp(ballRb.velocity, correctedVelocity, Time.deltaTime * 10f);
-
-            // Limit the ball's overall velocity
+            // Limit ball velocity to prevent drifting
             if (ballRb.velocity.magnitude > 1f)
             {
                 ballRb.velocity = ballRb.velocity.normalized * 1f;
@@ -245,14 +234,14 @@ public class OpponentTeamBehavior : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        // Stop dribbling if the ball is no longer in contact
-        if (collision.gameObject == ball.gameObject)
-        {
-            isDribbling = false;
-        }
-    }
+    // private void OnCollisionExit(Collision collision)
+    // {
+    //     // Stop dribbling if the ball is no longer in contact
+    //     if (collision.gameObject == ball.gameObject)
+    //     {
+    //         isDribbling = false;
+    //     }
+    // }
 
     private void HoldDefensivePosition()
     {
@@ -317,7 +306,7 @@ public class OpponentTeamBehavior : MonoBehaviour
         if (Vector3.Distance(transform.position, closestTeammate.transform.position) <= passRange)
         {
             Vector3 passDirection = (closestTeammate.transform.position - ball.position).normalized;
-            ballRb.AddForce(passDirection * kickForce, ForceMode.Impulse);
+            ballRb.AddForce(passDirection * kickForce * 0.1f, ForceMode.Impulse);
         }
     }
 
@@ -325,7 +314,7 @@ public class OpponentTeamBehavior : MonoBehaviour
     private void KickBall()
     {
         Vector3 kickDirection = (playerGoal.position - ball.position).normalized;
-        ballRb.AddForce(kickDirection * kickForce, ForceMode.Impulse);
+        ballRb.AddForce(kickDirection * kickForce * 0.1f, ForceMode.Impulse);
 
         BallControlTracker tracker = FindObjectOfType<BallControlTracker>();
         tracker.RegisterKick("Opponent");

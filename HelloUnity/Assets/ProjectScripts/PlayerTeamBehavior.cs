@@ -28,6 +28,7 @@ public class PlayerTeamBehavior : MonoBehaviour
     private void Update()
     {
         string currentPossessor = ballControlTracker.GetCurrentPossessor();
+        string ballArea = fieldManager.GetBallArea();
 
         if (currentPossessor != lastPossessor)
         {
@@ -37,13 +38,27 @@ public class PlayerTeamBehavior : MonoBehaviour
 
         if (currentPossessor == "Opponent")
         {
-            if (playerRole == Role.Defender)
+            if (ballArea == "PlayerDefensiveZone")
             {
-                Defend();
+                if (playerRole == Role.Defender)
+                {
+                    Defend();
+                }
+                else if (playerRole == Role.Striker)
+                {
+                    HoldDefensivePosition();
+                }
             }
-            else if (playerRole == Role.Striker)
+            else
             {
-                Intercept();
+                if (playerRole == Role.Defender)
+                {
+                    HoldDefensivePosition();
+                }
+                else if (playerRole == Role.Striker)
+                {
+                    Intercept();
+                }
             }
         }
         else if (currentPossessor == "Player")
